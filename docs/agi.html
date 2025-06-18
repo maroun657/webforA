@@ -1,0 +1,600 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 50px 20px 30px 20px;
+      background: linear-gradient(90deg, #ffb6c1 0%, #ff69b4 100%);
+      color: #fff;
+      border-bottom-left-radius: 32px;
+      border-bottom-right-radius: 32px;
+      box-shadow: 0 4px 24px rgba(255,182,193,0.15);
+    }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      margin: 0;
+      animation: fadeIn 2s ease;
+      letter-spacing: 2px;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+      opacity: 0.85;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 2rem auto;
+    }
+    .letters, .timeline, .gallery {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 16px rgba(255,182,193,0.10);
+      margin-bottom: 2rem;
+      padding: 2rem 1.5rem;
+    }
+    .letters h2, .gallery h2, .timeline h2 {
+      color: #d63384;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2em;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .letters article {
+      background: #fff0f5;
+      padding: 28px 24px;
+      margin: 24px 0 32px 0;
+      border-radius: 14px;
+      box-shadow: 0 4px 24px rgba(255,182,193,0.18);
+      font-family: 'Great Vibes', cursive, 'Open Sans', sans-serif;
+      font-size: 1.35em;
+      color: #b8005c;
+      border: 2px solid #ffb6c1;
+      line-height: 1.7;
+      transition: box-shadow 0.3s, border 0.3s;
+    }
+    .letters article h3 {
+      margin-top: 0;
+      color: #d63384;
+      font-size: 1.4em;
+      letter-spacing: 1px;
+    }
+    .letters article h3::before {
+  content: "💌";
+  margin-right: 8px;
+  font-size: 1.1em;
+  vertical-align: middle;
+}
+    .letters button {
+      margin-bottom: 10px;
+    }
+    button {
+      display: block;
+      margin: 20px auto 0 auto;
+      padding: 12px 28px;
+      background: linear-gradient(90deg, #ffb6c1 0%, #ff69b4 100%);
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      font-size: 1.1em;
+      font-family: 'Open Sans', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(255,182,193,0.13);
+      transition: background 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #ff69b4 0%, #ffb6c1 100%);
+      transform: scale(1.05);
+    }
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .gallery h2 {
+      margin-bottom: 1rem;
+    }
+    .gallery-images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .gallery-images figure {
+      margin: 0;
+      text-align: center;
+      max-width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1 1 200px;
+    }
+    .gallery-images img {
+      width: 100%;
+      max-width: 200px;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(255,182,193,0.13);
+      border: 2px solid #ffe4e1;
+      transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+    }
+    .gallery-images img:hover {
+      transform: scale(1.04) rotate(-2deg);
+      box-shadow: 0 6px 24px rgba(255,182,193,0.22);
+      border: 2px solid #ffb6c1;
+    }
+    @media (max-width: 500px) {
+      .gallery-images {
+        flex-direction: column;
+        max-width: 100%;
+        gap: 14px;
+      }
+      .gallery-images figure {
+        max-width: 100%;
+      }
+    }
+    .timeline {
+      border-left: 3px solid #ff69b4;
+      padding-left: 20px;
+      background: linear-gradient(180deg, #fff0f5 80%, #ffe4e1 100%);
+      position: relative;
+    }
+    .timeline-entry {
+      margin-bottom: 28px;
+      position: relative;
+      transition: background 0.2s;
+      border-radius: 10px;
+      padding: 8px 12px;
+    }
+    .timeline-entry:hover {
+      background: #ffe4e1;
+    }
+    .timeline-entry:before {
+      content: '';
+      position: absolute;
+      left: -32px;
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      background: #ff69b4;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(255,182,193,0.18);
+      border: 2px solid #fff;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(90deg, #ffb6c1 0%, #ff69b4 100%);
+      color: white;
+      border-top-left-radius: 32px;
+      border-top-right-radius: 32px;
+      margin-top: 2rem;
+      font-size: 1.1em;
+      letter-spacing: 1px;
+      border-top: 2px solid #ffe4e1;
+      box-shadow: 0 -2px 16px rgba(255,182,193,0.10);
+    }
+    @media (max-width: 700px) {
+      section {
+        padding: 12px 2vw;
+        max-width: 100%;
+      }
+      .letters, .timeline, .gallery {
+        padding: 1rem 0.5rem;
+        margin-bottom: 1.2rem;
+        max-width: 100vw;
+      }
+      .gallery-images {
+        flex-direction: column;
+        max-width: 100%;
+        gap: 14px;
+      }
+      .gallery-images figure {
+        max-width: 100%;
+      }
+      .gallery-images img {
+        max-width: 95vw;
+        min-width: 0;
+      }
+      .letters article {
+        font-size: 1.05em;
+        padding: 16px 8px;
+        max-width: 100vw;
+        box-sizing: border-box;
+      }
+    }
+    .gallery-images figure {
+      margin: 0;
+      text-align: center;
+      max-width: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .gallery-images figcaption.small-caption {
+      font-size: 0.75em;
+      padding: 2px 0;
+      text-align: center;
+      width: 100%;
+    }
+    .letter-hidden {
+  display: none !important;
+}
+#countdown-special {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto 2.5rem auto;
+  background: linear-gradient(90deg, #ffe4e1 60%, #fff0f5 100%);
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(255,182,193,0.13);
+  padding: 2.5em 1.5rem 2.5rem 1.5rem;
+  max-width: 420px;
+  position: relative;
+  overflow: visible;
+}
+
+.heart {
+  color: #ff69b4;
+  font-size: 2.2em;
+  position: absolute;
+  top: 22px;
+  animation: heartbeat 1.2s infinite;
+  filter: drop-shadow(0 2px 8px #ffb6c1aa);
+  z-index: 2;
+}
+.heart-left {
+  left: 24px;
+}
+.heart-right {
+  right: 24px;
+}
+
+@media (max-width: 500px) {
+  .heart-left {
+    left: 8px;
+  }
+  .heart-right {
+    right: 8px;
+  }
+}
+#countdown {
+  font-size: 1.7em;
+  color: #b8005c;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-top: 0.5em;
+}
+.countdown-label {
+  color: #d63384;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.7em;
+  margin-bottom: 0.5em;
+  letter-spacing: 1px;
+}
+body, button, .gallery-images img {
+  cursor: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/36x36/2764.png') 8 8, auto;
+}
+.open-when {
+  background: #fff0f5;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(255,182,193,0.13);
+  padding: 2rem 1.5rem 2.5rem 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  border: 2px dashed #ffb6c1;
+}
+
+.open-when h2 {
+  color: #d63384;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2em;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.open-when-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.open-when-buttons button {
+  background: linear-gradient(90deg, #ffb6c1 0%, #ff69b4 100%);
+  color: #fff;
+  border: none;
+  border-radius: 18px;
+  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
+  padding: 10px 18px;
+  box-shadow: 0 2px 8px rgba(255,182,193,0.13);
+  transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+.open-when-buttons button:hover {
+  background: linear-gradient(90deg, #ff69b4 0%, #ffb6c1 100%);
+  transform: scale(1.07);
+}
+
+.open-when-letters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.open-when-article {
+  background: #fff;
+  border-radius: 14px;
+  border: 2px solid #ffb6c1;
+  box-shadow: 0 4px 24px rgba(255,182,193,0.10);
+  padding: 22px 18px;
+  margin: 12px 0;
+  max-width: 420px;
+  width: 100%;
+  font-size: 1.08em;                /* Slightly smaller for clarity */
+  color: #a0004a;                   /* Darker, clearer text */
+  font-family: 'Open Sans', Arial, sans-serif; /* Use a clean sans-serif */
+  line-height: 1.7;
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.7s;
+  letter-spacing: 0.01em;
+}
+
+.open-when-article h3 {
+  margin-top: 0;
+  color: #d63384;
+  font-size: 1.15em;
+  letter-spacing: 1px;
+  font-family: 'Open Sans', Arial, sans-serif; /* Clearer heading */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.open-when-divider {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #ffb6c1 0%, #fff0f5 100%);
+  border-radius: 2px;
+  margin: 0 auto 1.5rem auto;
+  opacity: 0.5;
+}
+.emoji-envelope {
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+@media (max-width: 700px) {
+  .open-when {
+    padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+    max-width: 98vw;
+  }
+  .open-when-article {
+    padding: 14px 6px;
+    font-size: 1em;
+    max-width: 98vw;
+  }
+  .open-when-buttons {
+    gap: 8px;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>For My One and Only</h1>
+    <p>A little digital world of our love</p>
+  </header>
+
+  <section class="letters">
+    <h2>Love Letters</h2>
+    
+    <button onclick="toggleLetter('letter1', this)">Reveal Letter 1</button>
+    <article id="letter1" class="letter-hidden">
+      <h3>My Dearest Ági:  
+      </h3>
+      <p>
+        I wanna remind you in case you forgot or if you dont feel it, that I love you more than anything in this whole world.
+      </p>
+    </article>
+
+    <button onclick="toggleLetter('letter2', this)">Reveal Letter 2</button>
+    <article id="letter2" class="letter-hidden">
+      <h3>Mon Bebe: </h3>
+      <p>
+        Je rêve de notre avenir à deux, un avenir tissé d’amour, d’éclats de rire et de mille aventures partagées, où chaque jour sera un chapitre de notre éternité.
+      </p>
+    </article>
+
+    <button onclick="toggleLetter('secret', this)">Reveal Secret Letter</button>
+    <article id="secret" class="letter-hidden">
+      <h3>Szerelmem: </h3>
+      <p>
+        Nagyon szeretlek, és mindig itt leszek, hogy támogassalak és vigyázzak rád.
+      </p>
+    </article>
+  </section>
+
+  <section class="timeline">
+    <h2>Our Journey</h2>
+    <div class="timeline-entry"><h3>13 Jan 2023</h3><p>The French Song: Bakelit night with "Suavemente" by Soolking.</p></div>
+    <div class="timeline-entry"><h3>2023 - 2024</h3><p>The Long-Distance Friendship: Rare hangouts, but always meaningful.</p></div>
+    <div class="timeline-entry"><h3>1 May 2023</h3><p>Maroun’s Knefe: Ági tries the knefe Maroun made.</p></div>
+    <div class="timeline-entry"><h3>10 May 2023</h3><p>The Date Recommendations: Instagram reels about date ideas.</p></div>
+    <div class="timeline-entry"><h3>27 Sep 2023</h3><p>The Insta Story: Maroun posts a story of cheering Ági with beer.</p></div>
+    <div class="timeline-entry"><h3>9 Jun 2023</h3><p>Ági’s 22nd Birthday: Wagmi Cafe and Shisha.</p></div>
+    <div class="timeline-entry"><h3>13 Jan 2024</h3><p>Maroun invites Ági to his 20th birthday party, Ági buys a NEW dress for it. </p></div>
+    <div class="timeline-entry"><h3>1 May 2024</h3><p>The Picnic: Picnic at Great Forest, Maroun leaves food day preparation to be there.</p></div>
+    <div class="timeline-entry"><h3>9 Jun 2024</h3><p>The DM: "You think I would’ve left without saying goodbye?"</p></div>
+    <div class="timeline-entry"><h3>11 Jun 2024</h3><p>Bellozzo: "Secret" lunch and yapping session.</p></div>
+    <div class="timeline-entry"><h3>18 Jun 2024</h3><p>The Flight: Ági texts Maroun at 8:50 AM to wish him a safe flight.</p></div>
+    <div class="timeline-entry"><h3>15 Jul 2024</h3><p>The Sign: Maroun asks Ági for a favor, she goes out of her way to do it, even though she was traveling that day.</p></div>
+    <div class="timeline-entry"><h3>2 Oct 2024</h3><p>The Check-Up: Ági checks up on Maroun after the Beirut bombings.</p></div>
+    <div class="timeline-entry"><h3>7 Oct 2024</h3><p>The First Coffee: Maroun and Ági meet at Pepe for a coffee where Maroun talks for a good 1.5 hours.</p></div>
+    <div class="timeline-entry"><h3>13 Oct 2024</h3><p>The Second Coffee: The two meet again in the same week at Black Sheep café.</p></div>
+    <div class="timeline-entry"><h3>13 Oct 2024</h3><p>The Texting: from this moment, the two text non stop, Maroun wakes up early to wish Ági goodluck on her teaching classes. </p></div>
+    <div class="timeline-entry"><h3>15 Oct 2024</h3><p>Teleparty: They start watching Love is BLind together online.</p></div>
+    <div class="timeline-entry"><h3>19 Oct 2024</h3><p>The Running part 1: They go running together, Maroun gifts Ági a special coffee.</p></div>
+    <div class="timeline-entry"><h3>23 Oct 2024</h3><p>The Running part 2: Ági washes her hair and buys a new outfit for the occasion..</p></div>
+    <div class="timeline-entry"><h3>24 Oct 2024</h3><p>More Sports: Ági attends several of Maroun's football games.</p></div>
+    <div class="timeline-entry"><h3>25 Oct 2024</h3><p>Bo Burnham: The two watch Bo Burnham together and kiss for the first time.</p></div>
+    <div class="timeline-entry"><h3>13 Nov 2024</h3><p>The Talk: The two have a talk and decide to become official.</p></div>
+  </section>
+  <section class="open-when">
+  <h2><span class="emoji-envelope">✉️</span> Open When... <span class="emoji-envelope">✉️</span></h2>
+  <div class="open-when-divider"></div>
+  <div class="open-when-buttons">
+    <button onclick="toggleLetter('when-sad', this)">Open when you're sad</button>
+    <button onclick="toggleLetter('when-miss', this)">Open when you miss me</button>
+    <button onclick="toggleLetter('when-happy', this)">Open when you're happy</button>
+  </div>
+  <div class="open-when-letters">
+    <article id="when-sad" class="letter-hidden open-when-article">
+      <h3>When You're Sad <span class="emoji">💖</span></h3>
+      <p>
+        Remember, you are loved more than you know. I’m always here for you, and your smile is my favorite thing in the world.
+      </p>
+    </article>
+    <article id="when-miss" class="letter-hidden open-when-article">
+      <h3>When You Miss Me <span class="emoji">🤗</span></h3>
+      <p>
+        Close your eyes and feel my hug. No matter the distance, my heart is always with you. I love you endlessly!
+      </p>
+    </article>
+    <article id="when-happy" class="letter-hidden open-when-article">
+      <h3>When You're Happy <span class="emoji">🌞</span></h3>
+      <p>
+        Your happiness is my happiness! I hope every joy you feel multiplies and comes back to you a thousand times.
+      </p>
+    </article>
+  </div>
+</section>
+  <section class="gallery">
+    <h2>Our Memories</h2>
+    <div class="gallery-images">
+      <figure>
+        <img src="Pics/Pic 1.jpg" alt="Saint Charbel, Lebanon" />
+        <figcaption class="small-caption">Saint Charbel, Lebanon</figcaption>
+      </figure>
+      <figure>
+        <img src="Pics/Pic2 .jpg" alt="Meeting Maroun's Cousin" />
+        <figcaption class="small-caption">Meeting Maroun's Cousin</figcaption>
+      </figure>
+      <figure>
+        <img src="Pics/Pic3.jpg" alt="Ritual Elevator Pic" />
+        <figcaption class="small-caption">Ritual Elevator Pic</figcaption>
+      </figure>
+      <figure>
+        <img src="Pics/Pic4.jpg" alt="Skin Care" />
+        <figcaption class="small-caption">Skin Care</figcaption>
+      </figure>
+      <figure>
+        <img src="Pics/Pic5.jpg" alt="Christmas at Ági's" />
+        <figcaption class="small-caption">Christmas at Ági's</figcaption>
+      </figure>
+      <figure>
+        <img src="Pics/Pic 6.jpg" alt="Midnight Service" />
+        <figcaption class="small-caption">Midnight Service</figcaption>
+      </figure>
+      <figure>
+        <img src="Pics/Pic7.jpg" alt="Batroun, Lebanon" />
+        <figcaption class="small-caption">Batroun, Lebanon</figcaption>
+      </figure>
+      <figure>
+        <img src="Pics/Pic8.jpg" alt="Going out" />
+        <figcaption class="small-caption">Going out</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div id="countdown-special">
+  <span class="heart heart-left">❤️</span>
+  <span class="heart heart-right">❤️</span>
+  <div class="countdown-label">Next Anniversary</div>
+  <div id="countdown"></div>
+</div>
+
+  <footer>
+    <p>Made with all my love ❤️</p>
+  </footer>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  window.toggleLetter = function(letterId, btn) {
+    const letter = document.getElementById(letterId);
+    const isHidden = letter.classList.contains('letter-hidden');
+    letter.classList.toggle('letter-hidden');
+    btn.textContent = isHidden
+      ? btn.textContent.replace('Reveal', 'Close')
+      : btn.textContent.replace('Close', 'Reveal');
+  }
+});
+  </script>
+  <script>
+function getNextAnniversary() {
+  const now = new Date();
+  let year = now.getFullYear();
+  let month = now.getMonth();
+  let day = now.getDate();
+
+  // If today is after the 13th, go to next month
+  if (day > 13) {
+    month += 1;
+    if (month > 11) {
+      month = 0;
+      year += 1;
+    }
+  }
+  // If today is the 13th, show today as the anniversary
+  const nextAnniversary = new Date(year, month, 13, 0, 0, 0, 0);
+  return nextAnniversary;
+}
+
+function updateCountdown() {
+  const now = new Date();
+  const anniversary = getNextAnniversary();
+  const diff = anniversary - now;
+  if (diff > 0) {
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+    document.getElementById('countdown').textContent =
+      `Countdown to our next anniversary: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+  } else {
+    document.getElementById('countdown').textContent = "Happy Anniversary! 🎉";
+  }
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+</body>
+</html>
